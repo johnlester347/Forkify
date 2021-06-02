@@ -1,6 +1,6 @@
 {
-    "presets": [
-        ["env", {
+    "presets": [ // We select the preset 
+        ["env", { // And we select this the one the we want from presets, environments means the browser
             "targets": {
                 "browsers": [
                     "last 5 versions",
