@@ -37,3 +37,13 @@ elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     controlSearch();
 });
+
+elements.searchResPages.addEventListener('click', e => {
+    const btn = e.target.closest('.btn-inline'); // Hahanapin nya yung pinaka malapit na element na same sa naka lagay sa parameter
+
+    if (btn) {
+        const goToPage = parseInt(btn.dataset.goto, 10); // Kapag clinick mo yung button yung value ng data-goto yung i rereturn 
+        searchView.clearResults();
+        searchView.renderResults(state.search.result, goToPage);
+    }
+});
