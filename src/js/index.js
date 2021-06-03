@@ -1,6 +1,6 @@
 import Search from './models/Search'; // You can use lahat ng nakalagay sa Search.js
 import * as searchView from './views/searchView'; // You can use all of the file that is included sa searchView folder or file
-import { elements } from './views/base';
+import { elements, renderLoader, clearLoader } from './views/base';
 
 /** Global state of the app 
  * - Search object
@@ -21,10 +21,14 @@ const controlSearch = async () => {
         // 3. Prepare UI for results
         searchView.clearInput();
         searchView.clearResults();
+        renderLoader(elements.searchRes);
+
+
         // 4. Search for recipes
         await state.search.getResults(); // Eto yung API na connected na nasa Recipe
 
         // 5. Render results on UI
+        clearLoader();
         searchView.renderResults(state.search.result); // We render it to the user interface or sa DOM
     }
 }
