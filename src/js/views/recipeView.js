@@ -9,7 +9,19 @@ const formatCount = count => {
     if (count) {
         // Count = 2.5 --> 2 1/2
         // Count = 0.5 --> 1/2
+
+        // int = 2, dec = 5 --> seperated sila kasi hinati yung split('.')  --> convert string to number using parseInt
         const [int, dec] = count.toString().split('.').map(el => parseInt(el, 10));
+
+        if (!dec) return count; // If no decimal
+
+        if (int === 0) {
+            const fr = new Fraction(count);
+            return `${fr.numerator}/${fr.denominator}`;
+        } else {
+            const fr = new Fraction(count - int);
+            return `${int} ${fr.numerator}/${fr.denominator}`;
+        }
     }
 
     return '?';
