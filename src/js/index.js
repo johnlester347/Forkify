@@ -1,6 +1,7 @@
 import Search from './models/Search'; // You can use lahat ng nakalagay sa Search.js
 import Recipe from './models/Recipe'; // You can use lahat ng nakalagay sa Recipe.js
 import * as searchView from './views/searchView'; // You can use all of the file that is included sa searchView folder or file
+import * as recipeView from './views/recipeView'; // You can use all of the file that is included sa searchView folder or file
 import { elements, renderLoader, clearLoader } from './views/base';
 // import { Stats } from 'webpack';
 
@@ -71,6 +72,8 @@ const controlRecipe = async () => {
 
     if (id) {
         // Prepare UI for changes
+        recipeView.clearRecipe();
+        renderLoader(elements.recipe);
 
         // Create new recipe object
         state.recipe = new Recipe(id);
@@ -78,13 +81,16 @@ const controlRecipe = async () => {
         try {
             // Get recipe data and parse ingredients
             await state.recipe.getRecipe();
+            console.log(state.recipe.ingredients);
             state.recipe.parseIngredients();
+
             // Calculate servings and time
             state.recipe.calcTime();
             state.recipe.calcServings();
 
             // Render recipe
-            console.log(state.recipe);
+            clearLoader();
+            recipeView.renderRecipe(state.recipe);
         } catch (error) {
             alert('Error processing recipe!');
         }

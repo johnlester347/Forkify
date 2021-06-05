@@ -29,6 +29,9 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "babel-polyfill": "^6.26.0"
+    "babel-polyfill": "^6.26.0",
+    "fractional": "^1.0.0",
+    "install": "^0.13.0",
+    "npm": "^7.16.0"
   }
 }
