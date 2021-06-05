@@ -19,7 +19,6 @@ export const clearResults = () => {
  acc: 15 / acc + cur.length = 18 / newTitle = ['Pasta', 'with', 'tomato']  // Not pushed because 17 is the limit
  acc: 18 / acc + cur.length = 24 / newTitle = ['Pasta', 'with', 'tomato']  // Not pushed because 17 is the limit
 **/
-
 const limitRecipeTitle = (title, limit = 17) => {
     const newTitle = [];
     if (title.length > limit) { // If yung title is sobra sa 17.. execute
