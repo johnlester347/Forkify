@@ -17,7 +17,7 @@ export const highlightSelected = id => {
         el.classList.remove('results__link--active');
     });
 
-    document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active');
+    document.querySelector(`.results__link[href="#${id}"]`).classList.add('results__link--active');
 };
 
 /** 
@@ -28,7 +28,7 @@ export const highlightSelected = id => {
  acc: 15 / acc + cur.length = 18 / newTitle = ['Pasta', 'with', 'tomato']  // Not pushed because 17 is the limit
  acc: 18 / acc + cur.length = 24 / newTitle = ['Pasta', 'with', 'tomato']  // Not pushed because 17 is the limit
 **/
-const limitRecipeTitle = (title, limit = 17) => {
+export const limitRecipeTitle = (title, limit = 17) => {
     const newTitle = [];
     if (title.length > limit) { // If yung title is sobra sa 17.. execute
         title.split(' ').reduce((acc, cur) => { // By splitting yung words ay magiging array, acc is mag sstart sa 0 , then cur is Pasta whic is equals to 5
