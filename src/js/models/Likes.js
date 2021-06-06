@@ -14,4 +14,11 @@ export default class Likes {
         this.likes.splice(index, 1); // I ddelete nya yung may kaparehas na ID sa loob ng array, na pinasa mo sa argument
     }
 
+    isLiked(id) {
+        return this.likes.findIndex(el => el.id === id) !== -1;
+    }
+
+    getNumLikes() {
+        return this.likes.length;
+    }
 }
