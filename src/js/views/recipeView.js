@@ -10,16 +10,18 @@ const formatCount = count => {
         // Count = 2.5 --> 2 1/2
         // Count = 0.5 --> 1/2
 
-        // int = 2, dec = 5 --> seperated sila kasi hinati yung split('.')  --> convert string to number using parseInt
-        const [int, dec] = count.toString().split('.').map(el => parseInt(el, 10));
+        const newCount = Math.round(count * 10000) / 10000;
 
-        if (!dec) return count; // If no decimal
+        // int = 2, dec = 5 --> seperated sila kasi hinati yung split('.')  --> convert string to number using parseInt
+        const [int, dec] = newCount.toString().split('.').map(el => parseInt(el, 10));
+
+        if (!dec) return newCount; // If no decimal
 
         if (int === 0) {
-            const fr = new Fraction(count);
+            const fr = new Fraction(newCount);
             return `${fr.numerator}/${fr.denominator}`;
         } else {
-            const fr = new Fraction(count - int);
+            const fr = new Fraction(newCount - int);
             return `${int} ${fr.numerator}/${fr.denominator}`;
         }
     }
