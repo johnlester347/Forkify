@@ -1,5 +1,6 @@
 import Search from './models/Search'; // You can use lahat ng nakalagay sa Search.js
 import Recipe from './models/Recipe'; // You can use lahat ng nakalagay sa Recipe.js
+import List from './models/List'; // You can use lahat ng nakalagay sa List.js
 import * as searchView from './views/searchView'; // You can use all of the file that is included sa searchView folder or file
 import * as recipeView from './views/recipeView'; // You can use all of the file that is included sa searchView folder or file
 import { elements, renderLoader, clearLoader } from './views/base';
@@ -84,7 +85,7 @@ const controlRecipe = async () => {
         try {
             // Get recipe data and parse ingredients
             await state.recipe.getRecipe();
-            console.log(state.recipe.ingredients);
+            // console.log(state.recipe.ingredients);
             state.recipe.parseIngredients();
 
             // Calculate servings and time
@@ -121,5 +122,7 @@ elements.recipe.addEventListener('click', e => {
         recipeView.updateServingsIngredients(state.recipe);
     }
 
-    console.log(state.recipe);
+    // console.log(state.recipe);
 });
+
+window.r = new List();
