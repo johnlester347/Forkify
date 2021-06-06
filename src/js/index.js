@@ -18,7 +18,7 @@ import { elements, renderLoader, clearLoader } from './views/base';
 const state = {};
 // const search = new Search(q);
 // search.getResults();
-window.state = state;
+// window.state = state;
 
 
 /** SEARCH CONTROLLER ***/
@@ -73,7 +73,7 @@ elements.searchResPages.addEventListener('click', e => {
 const controlRecipe = async () => {
     // Get the ID from the URL
     const id = window.location.hash.replace('#', ''); // Windows.location is the entire URL and with means returning hash
-    console.log(id);
+    // console.log(id);
 
     if (id) {
         // Prepare UI for changes
@@ -220,4 +220,4 @@ elements.recipe.addEventListener('click', e => {
     // console.log(state.recipe);
 });
 
-window.r = new List();
+// window.r = new List();
