@@ -13,16 +13,16 @@ const formatCount = count => {
         const newCount = Math.round(count * 10000) / 10000;
 
         // int = 2, dec = 5 --> seperated sila kasi hinati yung split('.')  --> convert string to number using parseInt
-        const [int, dec] = newCount.toString().split('.').map(el => parseInt(el, 10));
+        const [int, dec] = newCount.toString().split('.').map(el => parseInt(el, 10)); // destructuring
 
         if (!dec) return newCount; // If no decimal
 
-        if (int === 0) {
+        if (int === 0) { // sample sa count = 0.5 --> int = 0 --> dec 5
             const fr = new Fraction(newCount);
-            return `${fr.numerator}/${fr.denominator}`;
+            return `${fr.numerator}/${fr.denominator}`; // sample 0.5 now irreturn nya ng 1/2
         } else {
-            const fr = new Fraction(newCount - int);
-            return `${int} ${fr.numerator}/${fr.denominator}`;
+            const fr = new Fraction(newCount - int); // sample 2.5 yung count then 2 yung int [int = 2, dec = 5] = 2.5
+            return `${int} ${fr.numerator}/${fr.denominator}`; // now dito is yung int ngayon is 2 and 1/2 yung numerator and denominator
         }
     }
 
