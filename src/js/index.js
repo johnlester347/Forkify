@@ -63,8 +63,8 @@ elements.searchResPages.addEventListener('click', e => {
     // console.log(btn);
     if (btn) {
         const goToPage = parseInt(btn.dataset.goto, 10); // Kapag clinick mo yung button yung value ng data-goto yung i rereturn 
-        searchView.clearResults();
-        searchView.renderResults(state.search.result, goToPage);
+        searchView.clearResults(); // clear the result ng class result pages which is yung parent ng button
+        searchView.renderResults(state.search.result, goToPage); // Kapag 2 yung nireturn sa goto page then ibabalik nya sa prev
     }
 });
 

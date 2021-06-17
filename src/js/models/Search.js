@@ -9,11 +9,10 @@ export default class Search {
         try {
             const res = await axios(`https://forkify-api.herokuapp.com/api/search?q=${this.query}`); // Masasave lahat ng obj property sa res
             this.result = res.data.recipes; // Ma aaccess mo lahat ng property ng res galing sa API
-            // console.log(this.result);
+            console.log(res);
         } catch (error) {
             alert(error);
         }
     }
 }
-
 

@@ -12,12 +12,13 @@ export const clearResults = () => {
 };
 
 export const highlightSelected = id => {
-    const resultsArr = Array.from(document.querySelectorAll('.results__link--active'));
+    const resultsArr = Array.from(document.querySelectorAll('.results__link--active')); // converting nodelist into array
     resultsArr.forEach(el => {
         el.classList.remove('results__link--active');
     });
 
-    document.querySelector(`.results__link[href="#${id}"]`).classList.add('results__link--active');
+    document.querySelector(`.results__link[href="#${id}"]`).classList.add('results__link--active'); // this will select all the a tags 
+    // that is active and add the class
 };
 
 /** 
@@ -94,8 +95,8 @@ const renderButtons = (page, numResults, resPerPage) => {
 
 export const renderResults = (recipes, page = 1, resPerPage = 10) => {
     // Render result of current page
-    const start = (page - 1) * resPerPage;
-    const end = page * resPerPage;
+    const start = (page - 1) * resPerPage; // Sample if nasa page 1 tayo 1 x 10 = 10
+    const end = page * resPerPage; // 2 x 10 = 20
 
     recipes.slice(start, end).forEach(renderRecipe);
 
